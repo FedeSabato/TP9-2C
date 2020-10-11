@@ -48,8 +48,13 @@
       <runprofile version="9">
         <runcommandpicklist>
           <runcommandpicklistitem>"${OUTPUT_PATH}"</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" </runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" federico</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" -opcion 3 list.txt fede.c</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" trabajo copy.exe windows. txt -jugar 678 goma,i -opcion 3 list.txt fede.c</runcommandpicklistitem>
+          <runcommandpicklistitem>"${OUTPUT_PATH}" trabajo copy.exe windows.txt -jugar 678 goma,i -opcion 3 list.txt fede.c</runcommandpicklistitem>
         </runcommandpicklist>
-        <runcommand>"${OUTPUT_PATH}"</runcommand>
+        <runcommand>"${OUTPUT_PATH}" trabajo copy.exe windows.txt -jugar 678 goma,i -opcion 3 list.txt fede.c</runcommand>
         <rundir></rundir>
         <buildfirst>true</buildfirst>
         <terminal-type>0</terminal-type>
