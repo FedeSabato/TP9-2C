@@ -13,15 +13,30 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#define MAX 20
 /*
  * 
  */
+void op_param(char op[][MAX],char val[][MAX],char par[][MAX], int argc, char** argv);
+
 int main(int argc, char** argv) {
+           
+    char opciones[argc][MAX];
+    char valores[argc][MAX];
+    char parametros[argc][MAX];
+ 
+    op_param(opciones,valores,parametros,argc,argv);
+
+  
     
-    int i,cont1=0,cont2=0;
+    return (EXIT_SUCCESS);
+}
+
+void op_param(char op[][MAX],char val[][MAX],char par[][MAX], int argc, char** argv){
     
-    char *pc;
+    int i,k,j,y;
+    
+    char* pc;
     
     for(i=1 ; i<argc; i++){
         
@@ -29,19 +44,21 @@ int main(int argc, char** argv) {
         
         if(*pc == '-'){
             
-            cont1++;
-            printf("Opcion %d : Clave: %s Valor: %s\n",cont1, argv[i],argv[i+1]);
-            i++;  // Aumenta i una vez para no leer el valor de la clave denuevo.
-            
-        }
-        else{
-            
-            cont2++;
-            printf("Parametro %d: %s\n",cont2,argv[i]);
-            
+            pc++;
+            for(j=0;*(pc)!='\0';j++){
+                               
+                op[k][j] = *(pc);
+                pc++;
+                
+            }   
+            for(y=0;*(pc)!='\0';y++){
+                
+                val[k][y] = *(pc);
+                pc++;
+            }   
+            k++;
         }
         
     }
-   
-    return (EXIT_SUCCESS);
+
 }
