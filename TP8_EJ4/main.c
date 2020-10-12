@@ -24,17 +24,17 @@ int main(int argc, char** argv) {
     char opciones[argc][MAX];
     char valores[argc][MAX];
     char parametros[argc][MAX];
- 
+   
     op_param(opciones,valores,parametros,argc,argv);
 
-  
+    printf("opcion 1 = %s",parametros[1]);
     
     return (EXIT_SUCCESS);
 }
 
 void op_param(char op[][MAX],char val[][MAX],char par[][MAX], int argc, char** argv){
     
-    int i,k,j,y;
+    int i,k,h,l,j=0,y=0,z=0,u=0;
     
     char* pc;
     
@@ -44,20 +44,36 @@ void op_param(char op[][MAX],char val[][MAX],char par[][MAX], int argc, char** a
         
         if(*pc == '-'){
             
-            pc++;
-            for(j=0;*(pc)!='\0';j++){
-                               
-                op[k][j] = *(pc);
-                pc++;
+            for(h=0;h<MAX;h++){
                 
-            }   
-            for(y=0;*(pc)!='\0';y++){
+                op[y][h] = argv[i][h];
                 
-                val[k][y] = *(pc);
-                pc++;
-            }   
-            k++;
+            }
+            
+            for(k=0;k<MAX;k++){
+                
+                val[y][k] = argv[i+1][k];
+                
+            }
+            
+            j++;
+            y++;
+            i++;
+                        
         }
+        else{
+        
+           for(l=0;l<MAX;l++){
+                
+                par[z][l] = argv[i][l];
+                
+            }
+           
+           z++;
+           u++;
+          
+        }
+        
         
     }
 
