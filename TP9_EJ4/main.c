@@ -14,21 +14,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "functions.h"
+
 #define MAX 50
 
-int main(int argc, char** argv) {
+int main(void) {
     
     int i = 0, cant=0;
     char c;
     
     char string[MAX]= {0};
     
+    printf("Ingrese una palabra o frase a analizar. El largo maximo son 50 letras.\n");
+    
     while((c=getchar())!='\n'){      //Cargo el caracter de entrada a la variable c
     			
         if(((c>='a')&&(c<='z'))||((c>='A')&&(c<='Z'))){ //Restrinjo valores ASCII para que solo lea como entrada letras
 
-            string[i]=c;
-            cant++;
+            string[i]=c;    //Guardamos solo letras en el string
+            cant++;         //Incrementamos contador de letras dentro del string
              i++;
                     
         }                
@@ -37,13 +40,11 @@ int main(int argc, char** argv) {
     char *pfc;
     char *plc;
     
-    pfc = &string[0];
-    plc = &string[cant-1]; 
+    pfc = &string[0];       //Apuntamos a la primera letra del string
+    plc = &string[cant-1];  //Apuntamos a la ultima letra del string. restamos 1 porque empieza en 0
  
     mayus_to_min(string,cant); //Pasamos todo a minusculas
      
-    printf("%s\n",string);
-    
     if((is_palynd(pfc,plc))==1){
     
          printf("EL string ingresado es palindromo");
